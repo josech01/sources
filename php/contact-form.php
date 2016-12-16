@@ -1,0 +1,16 @@
+<?php
+	$name = trim($_POST['name']);
+	$email = trim($_POST['email']);
+	$message = trim($_POST['message']);
+
+	$emailTo = 'mauricio@cuscosquare.com'; //Put your own email address here
+	$subject = '[MESSAGE] New Message Cusco Square.';
+	$body = "Name: $name \n\nEmail: $email \n\nMessage:\n$message";
+	$headers = 'From: '.$email."\r\n" .
+        'Reply-To: '.$email."\r\n".
+		'Content-Type:text/html;charset=utf-8'."\r\n";
+	mail($emailTo, $subject, $body, $headers);
+	$emailSent = true;
+	echo ('SEND');
+
+?>
